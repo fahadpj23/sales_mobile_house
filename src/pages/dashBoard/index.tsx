@@ -210,7 +210,7 @@ const Dashboard: React.FC = () => {
                 Total Revenue
               </p>
               <p className="text-lg sm:text-2xl font-bold text-gray-900">
-                ₹{totals.totalRevenue.toFixed(2)}
+                ₹{Math.ceil(totals.totalRevenue)}
               </p>
               <p className="text-xs text-gray-500 mt-1">All income</p>
             </div>
@@ -228,7 +228,7 @@ const Dashboard: React.FC = () => {
                 Sales Total
               </p>
               <p className="text-lg sm:text-2xl font-bold text-gray-900">
-                ₹{totals.totalSales.toFixed(2)}
+                ₹{Math.ceil(totals.totalSales)}
               </p>
             </div>
             <div className="p-2 sm:p-3 bg-blue-100 rounded-lg">
@@ -245,7 +245,7 @@ const Dashboard: React.FC = () => {
                 Service Total
               </p>
               <p className="text-lg sm:text-2xl font-bold text-gray-900">
-                ₹{totals.totalService.toFixed(2)}
+                ₹{Math.ceil(totals.totalService)}
               </p>
             </div>
             <div className="p-2 sm:p-3 bg-purple-100 rounded-lg">
@@ -338,15 +338,15 @@ const Dashboard: React.FC = () => {
                   </h3>
                   <div className="flex flex-wrap gap-2 mt-2">
                     <span className="inline-flex items-center bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs font-medium">
-                      {data.keypadPhones} keypad (₹{data.keypadValue.toFixed(2)}
-                      )
+                      {data.keypadPhones} keypad (₹{Math.ceil(data.keypadValue)}{" "}
+                      value )
                     </span>
                     <span className="inline-flex items-center bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-medium">
                       {data.smartphones} smart (₹
-                      {data.smartphoneValue.toFixed(2)})
+                      {Math.ceil(data.smartphoneValue)} value )
                     </span>
                     <span className="inline-flex items-center bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">
-                      ₹{data.totalRevenue.toFixed(2)} total
+                      ₹ {Math.ceil(data.totalRevenue)} value total
                     </span>
                   </div>
                 </div>
@@ -355,7 +355,7 @@ const Dashboard: React.FC = () => {
                     <div className="text-center">
                       <p className="text-xs sm:text-sm text-gray-600">Sales</p>
                       <p className="font-semibold text-green-600 text-sm sm:text-base">
-                        ₹{data.totalSales.toFixed(2)}
+                        ₹{Math.ceil(data.totalSales)}
                       </p>
                     </div>
                     <div className="text-center">
@@ -363,7 +363,7 @@ const Dashboard: React.FC = () => {
                         Service
                       </p>
                       <p className="font-semibold text-blue-600 text-sm sm:text-base">
-                        ₹{data.totalService.toFixed(2)}
+                        ₹{Math.ceil(data.totalService)}
                       </p>
                     </div>
                   </div>
@@ -384,7 +384,7 @@ const Dashboard: React.FC = () => {
                   {/* Keypad Phones */}
                   <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
                     <h4 className="font-semibold text-gray-800 mb-3 text-sm sm:text-base">
-                      Keypad Phones (₹{data.keypadValue.toFixed(2)})
+                      Keypad Phones ( ₹{Math.ceil(data.keypadValue)} )
                     </h4>
                     <div className="space-y-2">
                       {Object.entries(data.keypadModels).map(
@@ -413,7 +413,7 @@ const Dashboard: React.FC = () => {
                   {/* Smartphones */}
                   <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
                     <h4 className="font-semibold text-gray-800 mb-3 text-sm sm:text-base">
-                      Smartphones (₹{data.smartphoneValue.toFixed(2)})
+                      Smartphones ( ₹{Math.ceil(data.smartphoneValue)} )
                     </h4>
                     <div className="space-y-2">
                       {Object.entries(data.smartphoneModels).map(
@@ -455,7 +455,7 @@ const Dashboard: React.FC = () => {
                               {new Date(date).toLocaleDateString("en-GB")}
                             </span>
                             <span className="text-gray-600 text-xs sm:text-sm">
-                              ₹{dailyData.revenue.toFixed(2)}
+                              ₹{Math.ceil(dailyData.revenue)}
                             </span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-3 sm:h-4">
@@ -475,8 +475,8 @@ const Dashboard: React.FC = () => {
                               {dailyData.smartphones} smart
                             </span>
                             <span className="text-xs">
-                              Sales: ₹{dailyData.sales.toFixed(2)} • Service: ₹
-                              {dailyData.service.toFixed(2)}
+                              Sales: ₹{Math.ceil(dailyData.sales)} • Service: ₹
+                              ₹{Math.ceil(dailyData.service)}
                             </span>
                           </div>
                         </div>
